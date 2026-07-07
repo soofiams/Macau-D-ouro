@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macau d'Ouro</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+<header class="hero">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">
+                Macau d'Ouro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="historia.html">História</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link btn-contacto" href="reservas.html">
+                                Reservas
+                            </a>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-content">
+        <span class="subtitle">
+            Porto • Portugal
+        </span>
+        <h1>
+            Sabores de Macau,<br>
+            alma portuguesa.
+        </h1>
+        <p>Uma experiência gastronómica inspirada na fusão entre Portugal e Macau, num ambiente elegante e acolhedor.
+        </p>
+        <div class="hero-buttons">
+            <a href="#" class="btn btn-gold">
+                Reservar Mesa
+            </a>
+            <a href="#" class="btn btn-outline">
+                Ver Menu
+            </a>
+        </div>
+    </div>
+</header>
+<section class="reservation-form py-5">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="reservation-card">
+
+                    <h2 class="text-center mb-4">
+
+                        Reserve a sua mesa
+
+                    </h2>
+
+                    <form>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label">
+                                    Nome Completo
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="O seu nome"
+                                    required>
+
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label">
+                                    Telefone
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    class="form-control"
+                                    placeholder="+351"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label">
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    placeholder="email@email.com"
+                                    required>
+
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label">
+                                    Número de Pessoas
+                                </label>
+
+                                <select class="form-select">
+
+                                    <option>1 Pessoa</option>
+                                    <option>2 Pessoas</option>
+                                    <option>3 Pessoas</option>
+                                    <option>4 Pessoas</option>
+                                    <option>5 Pessoas</option>
+                                    <option>6 Pessoas</option>
+                                    <option>Mais de 6</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label">
+                                    Data
+                                </label>
+
+                                <input
+                                    type="date"
+                                    class="form-control"
+                                    required>
+
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label">
+                                    Hora
+                                </label>
+
+                                <input
+                                    type="time"
+                                    class="form-control"
+                                    min="12:00"
+                                    max="23:00"
+                                    step="1800"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Motivo da Reserva
+                            </label>
+
+                            <select class="form-select">
+
+                                <option>Almoço</option>
+                                <option>Jantar</option>
+                                <option>Aniversário</option>
+                                <option>Jantar Romântico</option>
+                                <option>Evento Especial</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+
+                                Pedidos Especiais
+
+                            </label>
+
+                            <textarea
+                                rows="5"
+                                class="form-control"
+                                placeholder="Alergias, mesa junto à janela, cadeira para criança..."></textarea>
+
+                        </div>
+
+                        <div class="form-check mb-4">
+
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                required>
+
+                            <label class="form-check-label">
+
+                                Li e aceito a Política de Privacidade.
+
+                            </label>
+
+                        </div>
+
+                        <div class="text-center">
+
+                            <button
+                                class="btn btn-warning btn-lg px-5">
+
+                                Reservar Mesa
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- Restaurante -->
+            <div class="col-lg-4 mb-5">
+                <h2 class="footer-logo">
+                    Macau d'Ouro
+                </h2>
+                <p class="footer-text">
+                    Sabores de Macau, alma portuguesa.
+                    Uma experiência gastronómica que celebra a ligação
+                    entre Portugal e Macau, no coração do Porto.
+                </p>
+            </div>
+            <div class="col-lg-2 mb-5">
+            </div>
+            <div class="col-lg-3 mb-5">
+                <h5>Contactos</h5>
+                <p>Rua de Santa Catarina 250
+                    <br>
+                    Porto
+                </p>
+                <p>+351 912 345 678</p>
+                <p>contacto@macaudouro.pt </p>
+            </div>
+            <div class="col-lg-3">
+                <h5>Horário</h5>
+                <p>
+                    Segunda a Quinta
+                    <br>
+                    12:00 - 22:30
+                </p>
+                <p>
+                    Sexta a Domingo
+                    <br>
+                    12:00 - 23:30
+                </p>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-bottom">
+            <p> © 2026 Macau d'Ouro • Todos os direitos reservados.</p>
+            <div class="social">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">TikTok</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
