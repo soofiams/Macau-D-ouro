@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['admin_id'] = $admin['id'];
         $_SESSION['utilizador'] = $admin['utilizador'];
 
-        header('Location: painel.php');
+        header('Location: painel_b.php');
         exit;
     }
 

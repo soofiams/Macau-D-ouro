@@ -66,170 +66,136 @@
         </div>
     </header>
     <main>
-
-        <!-- Título -->
-
         <section class="menu-page">
-
             <div class="container">
-
                 <div class="text-center mb-5">
-
                     <span class="menu-subtitle">
                         MACAU D'OURO
                     </span>
-
-                    <h1 class="menu-title">
-                        O Nosso Menu
-                    </h1>
-
+                    <h1 class="menu-title">O Nosso Menu</h1>
                     <p class="menu-description">
-
                         Uma viagem gastronómica inspirada na fusão entre
                         Portugal e Macau.
-
                     </p>
-
                 </div>
-
-                <!-- ENTRADAS -->
-
+                <?php
+$pdo = new PDO(
+    'mysql:host=localhost;dbname=macau_douro;charset=utf8mb4',
+    'root',
+    '',
+    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+);
+$categorias = [
+    "Entradas",
+    "Sopas",
+    "Pratos Principais",
+    "Sobremesas",
+    "Bebidas"
+];
+foreach ($categorias as $categoria):
+?>
                 <div class="menu-category">
-
-                    <h2>Entradas</h2>
-
+                    <h2>
+                        <?= htmlspecialchars($categoria) ?>
+                    </h2>
+                    <?php
+    $stmt = $pdo->prepare("
+        SELECT *
+        FROM menu
+        WHERE categoria = ?
+        ORDER BY nome
+    ");
+    $stmt->execute([$categoria]);
+    while ($prato = $stmt->fetch(PDO::FETCH_ASSOC)):
+    ?>
                     <div class="menu-item">
-                        <span>Pastéis de Bacalhau</span>
-                        <span>8,50 € / 78 MOP</span>
+                        <span>
+                            <?= htmlspecialchars($prato['nome']) ?>
+                        </span>
+                        <span>
+                            <?= number_format($prato['preco_eur'],2,",",".") ?> €
+                            /
+                            <?= number_format($prato['preco_mop'],0,",",".") ?> MOP
+                        </span>
                     </div>
-
-                    <div class="menu-item">
-                        <span>Dim Sum Artesanal</span>
-                        <span>9,90 € / 91 MOP</span>
-                    </div>
-
-                    <div class="menu-item">
-                        <span>Crepes de Camarão</span>
-                        <span>10,50 € / 97 MOP</span>
-                    </div>
-
-                    <div class="menu-item">
-                        <span>Tábua de Queijos Portugueses</span>
-                        <span>12,00 € / 110 MOP</span>
-                    </div>
-
+                    <?php endwhile; ?>
                 </div>
-
-                <!-- SOPAS -->
-
+                <?php endforeach; ?>
                 <div class="menu-category">
-
                     <h2>Sopas</h2>
-
                     <div class="menu-item">
                         <span>Canja Macaense</span>
                         <span>7,50 € / 69 MOP</span>
                     </div>
-
                     <div class="menu-item">
                         <span>Creme de Legumes</span>
                         <span>6,90 € / 63 MOP</span>
                     </div>
-
                     <div class="menu-item">
                         <span>Sopa de Marisco</span>
                         <span>9,50 € / 87 MOP</span>
                     </div>
-
                 </div>
-
-                <!-- PRATOS PRINCIPAIS -->
-
                 <div class="menu-category">
-
                     <h2>Pratos Principais</h2>
-
                     <div class="menu-item">
                         <span>Minchi</span>
                         <span>18,90 € / 174 MOP</span>
                     </div>
-
                     <div class="menu-item">
                         <span>Galinha Africana</span>
                         <span>21,50 € / 198 MOP</span>
                     </div>
-
                     <div class="menu-item">
                         <span>Tacho Macaense</span>
                         <span>26,00 € / 239 MOP</span>
                     </div>
-
                     <div class="menu-item">
                         <span>Arroz Chau-Chau</span>
                         <span>17,50 € / 161 MOP</span>
                     </div>
-
                     <div class="menu-item">
                         <span>Pato Assado com Molho Oriental</span>
                         <span>24,50 € / 225 MOP</span>
                     </div>
-
                     <div class="menu-item">
                         <span>Bacalhau à Macau</span>
                         <span>22,90 € / 211 MOP</span>
                     </div>
-
                     <div class="menu-item">
                         <span>Camarão ao Tamarindo</span>
                         <span>24,90 € / 229 MOP</span>
                     </div>
-
                     <div class="menu-item">
                         <span>Lombo de Novilho com Molho de Pimenta</span>
                         <span>28,50 € / 262 MOP</span>
                     </div>
-
                 </div>
-
-                <!-- SOBREMESAS -->
-
                 <div class="menu-category">
-
                     <h2>Sobremesas</h2>
-
                     <div class="menu-item">
                         <span>Serradura</span>
                         <span>7,50 € / 69 MOP</span>
                     </div>
-
                     <div class="menu-item">
                         <span>Pastel de Nata</span>
                         <span>3,20 € / 29 MOP</span>
                     </div>
-
                     <div class="menu-item">
                         <span>Pudim Abade de Priscos</span>
                         <span>6,50 € / 60 MOP </span>
                     </div>
-
                     <div class="menu-item">
                         <span>Mousse de Chocolate</span>
                         <span>6,00 € / 55 MOP</span>
                     </div>
-
                     <div class="menu-item">
                         <span>Bolo de Amêndoa</span>
                         <span>5,90 € / 54 MOP</span>
                     </div>
-
                 </div>
-
-                <!-- BEBIDAS -->
-
                 <div class="menu-category">
-
                     <h2>Bebidas</h2>
-
                     <div class="menu-item">
                         <span>Água Mineral</span>
                         <span>2,20 € / 20 MOP</span>
@@ -327,5 +293,4 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

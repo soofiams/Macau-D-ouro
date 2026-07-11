@@ -10,6 +10,34 @@ $pdo = new PDO(
     '',
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
 );
+if (isset($_GET['acao']) && isset($_GET['id'])) {
+    $id = (int)$_GET['id'];
+    if ($_GET['acao'] == 'aceitar') {
+        $stmt = $pdo->prepare("UPDATE reservas SET estado='Aceite' WHERE id=?");
+        $stmt->execute([$id]);
+    }
+    if ($_GET['acao'] == 'cancelar') {
+        $stmt = $pdo->prepare("UPDATE reservas SET estado='Cancelada' WHERE id=?");
+        $stmt->execute([$id]);
+    }
+    header("Location: reservas_b.php");
+    exit;
+}
+$pesquisa = $_GET['pesquisa'] ?? '';
+$estado = $_GET['estado'] ?? '';
+$sql = "SELECT * FROM reservas WHERE 1=1";
+$parametros = [];
+if (!empty($pesquisa)) {
+    $sql .= " AND nome LIKE ?";
+    $parametros[] = "%$pesquisa%";
+}
+if (!empty($estado)) {
+    $sql .= " AND estado = ?";
+    $parametros[] = $estado;
+}
+$sql .= " ORDER BY data, hora";
+$stmt = $pdo->prepare($sql);
+$stmt->execute($parametros);
 
 /* ALTERAR ESTADO */
 
