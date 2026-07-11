@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: login.php");
+    exit;
+}
 $pdo = new PDO(
     'mysql:host=localhost;dbname=macau_douro;charset=utf8mb4',
     'root',
@@ -7,47 +11,110 @@ $pdo = new PDO(
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
 );
 
-$stmt = $pdo->query(
-    "SELECT nome, telefone, pessoas, data, hora, motivo
-     FROM reservas
-     ORDER BY data, hora"
-);
+/* ALTERAR ESTADO */
+
+if (isset($_GET['acao']) && isset($_GET['id'])) {
+
+    $id = (int)$_GET['id'];
+
+    if ($_GET['acao'] == 'aceitar') {
+
+        $stmt = $pdo->prepare("UPDATE reservas SET estado='Aceite' WHERE id=?");
+        $stmt->execute([$id]);
+
+    }
+
+    if ($_GET['acao'] == 'cancelar') {
+
+        $stmt = $pdo->prepare("UPDATE reservas SET estado='Cancelada' WHERE id=?");
+        $stmt->execute([$id]);
+
+    }
+
+    header("Location: reservas.php");
+    exit;
+}
+
+/* LISTAR RESERVAS */
+
+$stmt = $pdo->query("SELECT * FROM reservas ORDER BY data, hora");
 $reservas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <title>Reservas</title>
-    <link rel="stylesheet" href="css/style_b.css">
-</head>
-<body>
-<div class="login-card" style="width:900px">
-    <div class="logo">
-        <h1>MACAU D'OURO</h1>
-        <p>Reservas</p>
-    </div>
 
-    <table style="width:100%;border-collapse:collapse">
-        <tr>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Pessoas</th>
-            <th>Data</th>
-            <th>Hora</th>
-            <th>Motivo</th>
-        </tr>
-        <?php foreach ($reservas as $r): ?>
-        <tr>
-            <td><?= htmlspecialchars($r['nome']) ?></td>
-            <td><?= htmlspecialchars($r['telefone']) ?></td>
-            <td><?= (int)$r['pessoas'] ?></td>
-            <td><?= htmlspecialchars($r['data']) ?></td>
-            <td><?= htmlspecialchars($r['hora']) ?></td>
-            <td><?= htmlspecialchars($r['motivo']) ?></td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
+<meta charset="UTF-8">
+
+<title>Gerir Reservas</title>
+
+<link rel="stylesheet" href="css/painel.css">
+
+</head>
+
+<body>
+
+<header class="topo">
+
+<div class="logo">
+
+<h1>MACAU D'OURO</h1>
+
+<p>Backoffice</p>
+
+</div>
+
+</header>
+
+<div class="conteudo">
+
+<h2>Gerir Reservas</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Cliente</th>
+<th>Pessoas</th>
+<th>Data</th>
+<th>Hora</th>
+<th>Estado</th>
+<th>Ações</th>
+<th>Avisar Cliente</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach($reservas as $r): ?>
+<tr>
+<td><?= htmlspecialchars($r['nome']) ?></td>
+<td><?= $r['pessoas'] ?></td>
+<td><?= date('d/m/Y', strtotime($r['data'])) ?></td>
+<td><?= substr($r['hora'],0,5) ?></td>
+<td>
+<?php
+if($r['estado']=="Pendente")
+    echo "🟡 Pendente";
+elseif($r['estado']=="Aceite")
+    echo "🟢 Aceite";
+else
+    echo "🔴 Cancelada";
+?>
+</td>
+<td>
+<a class="aceitar" href="reservas.php?acao=aceitar&id=<?= $r['id'] ?>">✅</a>
+<a class="cancelar" href="reservas.php?acao=cancelar&id=<?= $r['id'] ?>">❌</a>
+</td>
+<td>
+<a class="email" href="aviso.php?id=<?= $r['id'] ?>">✉️</a>
+</td>
+</tr>
+<?php endforeach; ?>
+</tbody>
+</table>
 </div>
 </body>
 </html>

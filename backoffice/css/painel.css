@@ -1,0 +1,453 @@
+body{
+    margin:0;
+    background:#f8f4ed;
+    font-family:Georgia, serif;
+    color:#2d3b2f;
+}
+
+/* Topo */
+
+.topo{
+    padding:30px 40px;
+}
+
+.logo{
+    text-align:left;
+}
+
+.logo h1{
+    margin:0;
+    color:#b68c2f;
+    font-size:38px;
+    letter-spacing:2px;
+}
+
+.logo p{
+    margin-top:5px;
+    color:#2d3b2f;
+    text-transform:uppercase;
+    letter-spacing:3px;
+}
+
+/* Centro */
+
+.painel{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:calc(100vh - 120px);
+}
+
+.painel h2{
+    margin:0;
+    font-size:48px;
+    color:#2d3b2f;
+}
+
+.painel h3{
+    margin:15px 0 70px;
+    font-size:28px;
+    color:#b68c2f;
+    font-weight:normal;
+}
+
+/* Menu */
+
+.menu-admin{
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+}
+
+.menu-admin a{
+    text-decoration:none;
+    color:#2d3b2f;
+    font-size:28px;
+    transition:.25s;
+}
+
+.menu-admin a:hover{
+    color:#b68c2f;
+    transform:translateX(8px);
+}
+
+.conteudo{
+
+width:90%;
+
+margin:auto;
+
+margin-top:40px;
+
+}
+
+.conteudo h2{
+
+text-align:center;
+
+font-size:42px;
+
+margin-bottom:40px;
+
+color:#2d3b2f;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+background:white;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+border-radius:10px;
+
+overflow:hidden;
+
+}
+
+th{
+
+background:#b68c2f;
+
+color:white;
+
+padding:18px;
+
+font-size:18px;
+
+}
+
+td{
+
+padding:18px;
+
+text-align:center;
+
+border-bottom:1px solid #eee;
+
+}
+
+tr:hover{
+
+background:#faf7f0;
+
+}
+
+.aceitar,
+
+.cancelar,
+
+.email{
+
+text-decoration:none;
+
+font-size:22px;
+
+margin:0 8px;
+
+transition:.2s;
+
+}
+
+.aceitar:hover{
+
+transform:scale(1.2);
+
+}
+
+.cancelar:hover{
+
+transform:scale(1.2);
+
+}
+
+.email:hover{
+
+transform:scale(1.2);
+
+}
+
+.aviso{
+
+width:650px;
+
+margin:40px auto;
+
+background:white;
+
+padding:40px;
+
+border-radius:15px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.aviso h2{
+
+text-align:center;
+
+margin-bottom:35px;
+
+color:#2d3b2f;
+
+}
+
+.aviso p{
+
+font-size:18px;
+
+margin-bottom:15px;
+
+}
+
+textarea{
+
+width:100%;
+
+height:220px;
+
+padding:15px;
+
+border:1px solid #d8c8a0;
+
+border-radius:10px;
+
+resize:none;
+
+font-size:16px;
+
+font-family:Georgia, serif;
+
+box-sizing:border-box;
+
+margin-top:10px;
+
+margin-bottom:25px;
+
+}
+
+.aviso button{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:10px;
+
+background:#b68c2f;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.aviso button:hover{
+
+background:#987220;
+
+}
+
+.sucesso{
+
+background:#d9f6dd;
+
+border:1px solid #66bb6a;
+
+padding:15px;
+
+border-radius:8px;
+
+margin-bottom:25px;
+
+text-align:center;
+
+font-weight:bold;
+
+}
+
+.voltar{
+
+display:block;
+
+text-align:center;
+
+margin-top:25px;
+
+text-decoration:none;
+
+color:#2d3b2f;
+
+font-weight:bold;
+
+font-size:18px;
+
+}
+
+.voltar:hover{
+
+color:#b68c2f;
+
+}
+.novo-prato{
+
+display:inline-block;
+
+background:#b68c2f;
+
+color:white;
+
+padding:12px 22px;
+
+border-radius:10px;
+
+text-decoration:none;
+
+margin-bottom:25px;
+
+font-size:18px;
+
+transition:.3s;
+
+}
+
+.novo-prato:hover{
+
+background:#987220;
+
+}
+
+.editar,
+
+.eliminar{
+
+font-size:22px;
+
+text-decoration:none;
+
+margin:0 10px;
+
+transition:.2s;
+
+}
+
+.editar:hover{
+
+transform:scale(1.2);
+
+}
+
+.eliminar:hover{
+
+transform:scale(1.2);
+
+}
+.formulario{
+
+width:650px;
+
+margin:40px auto;
+
+background:white;
+
+padding:40px;
+
+border-radius:15px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.formulario h2{
+
+text-align:center;
+
+margin-bottom:30px;
+
+color:#2d3b2f;
+
+}
+
+.formulario label{
+
+display:block;
+
+margin-top:20px;
+
+margin-bottom:8px;
+
+font-weight:bold;
+
+}
+
+.formulario input,
+
+.formulario select,
+
+.formulario textarea{
+
+width:100%;
+
+padding:12px;
+
+border:1px solid #d8c8a0;
+
+border-radius:8px;
+
+box-sizing:border-box;
+
+font-size:16px;
+
+font-family:Georgia, serif;
+
+}
+
+.formulario textarea{
+
+resize:vertical;
+
+min-height:120px;
+
+}
+
+.formulario button{
+
+margin-top:30px;
+
+width:100%;
+
+padding:15px;
+
+background:#b68c2f;
+
+color:white;
+
+border:none;
+
+border-radius:8px;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.formulario button:hover{
+
+background:#987220;
+
+}
