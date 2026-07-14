@@ -1,3 +1,13 @@
+<?php
+
+$pdo = new PDO(
+    'mysql:host=localhost;dbname=macau_douro;charset=utf8mb4',
+    'root',
+    '',
+    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+);
+
+?>
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -59,7 +69,7 @@
                 <a href="reservas.html" class="btn btn-gold">
                     Reservar Mesa
                 </a>
-                <a href="menu.html" class="btn btn-outline">
+                <a href="menu.php" class="btn btn-outline">
                     Ver Menu
                 </a>
             </div>
