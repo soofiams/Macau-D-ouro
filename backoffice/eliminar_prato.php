@@ -14,7 +14,7 @@ $pdo = new PDO(
 );
 
 if (!isset($_GET['id'])) {
-    header("Location: menu.php");
+    header("Location: menu_b.php");
     exit;
 }
 
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     }
 
-    header("Location: menu.php");
+    header("Location: menu_b.php");
     exit;
 }
 ?>

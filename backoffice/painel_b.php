@@ -32,9 +32,7 @@ if (!isset($_SESSION['admin_id'])) {
     <nav class="menu-admin">
         <a href="reservas_b.php">Gerir Reservas</a>
 
-        <a href="menu.php">Alterar Menu</a>
-
-        <a href="precos.php">Alterar Preços</a>
+        <a href="menu_b.php">Alterar Menu</a>
 
         <a href="logout.php">Terminar Sessão</a>
     </nav>

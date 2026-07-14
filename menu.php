@@ -34,7 +34,7 @@
                             <a class="nav-link" href="historia.html">História</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="menu.html">Menu</a>
+                            <a class="nav-link" href="menu.php">Menu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn-contacto" href="reservas.html">
